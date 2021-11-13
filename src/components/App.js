@@ -1,6 +1,6 @@
 import React from 'react';
 // import { createCoupon, listCoupons, validateCoupon } from '../utils/urls';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import CreateCoupon from './CreateCoupon';
 import Header from './Header';
 import ValidateCoupon from './ValidateCoupon';

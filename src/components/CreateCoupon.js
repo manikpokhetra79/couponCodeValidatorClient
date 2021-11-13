@@ -101,7 +101,7 @@ const CreateCoupon = () => {
         }
       })
       .catch((error) => {
-        console.log(error, 'ehjre');
+        console.log(error);
       });
   };
   return (
