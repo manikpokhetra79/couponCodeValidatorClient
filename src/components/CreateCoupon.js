@@ -75,8 +75,8 @@ const CreateCoupon = () => {
     }
   };
   // generate coupon fetch api function
-  let generateCoupon = async (obj) => {
-    await fetch(createCoupon, {
+  let generateCoupon = (obj) => {
+    fetch(createCoupon, {
       method: 'POST',
       body: JSON.stringify({
         formdata: obj,
@@ -98,6 +98,9 @@ const CreateCoupon = () => {
             setError(false);
           }, 4000);
         }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   return (

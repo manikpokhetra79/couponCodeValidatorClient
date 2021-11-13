@@ -8,6 +8,9 @@ const CouponsList = () => {
       .then((data) => {
         console.log(data);
         setCouponsList(data.coupons);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
   return (
