@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/couponCodeValidatorClient/static/css/main.1ac8bd33.chunk.css",
+    "main.js": "/couponCodeValidatorClient/static/js/main.5b42705c.chunk.js",
+    "main.js.map": "/couponCodeValidatorClient/static/js/main.5b42705c.chunk.js.map",
+    "runtime-main.js": "/couponCodeValidatorClient/static/js/runtime-main.a56bcede.js",
+    "runtime-main.js.map": "/couponCodeValidatorClient/static/js/runtime-main.a56bcede.js.map",
+    "static/js/2.f3414d32.chunk.js": "/couponCodeValidatorClient/static/js/2.f3414d32.chunk.js",
+    "static/js/2.f3414d32.chunk.js.map": "/couponCodeValidatorClient/static/js/2.f3414d32.chunk.js.map",
+    "static/js/3.d9c12399.chunk.js": "/couponCodeValidatorClient/static/js/3.d9c12399.chunk.js",
+    "static/js/3.d9c12399.chunk.js.map": "/couponCodeValidatorClient/static/js/3.d9c12399.chunk.js.map",
+    "index.html": "/couponCodeValidatorClient/index.html",
+    "static/css/main.1ac8bd33.chunk.css.map": "/couponCodeValidatorClient/static/css/main.1ac8bd33.chunk.css.map",
+    "static/js/2.f3414d32.chunk.js.LICENSE.txt": "/couponCodeValidatorClient/static/js/2.f3414d32.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a56bcede.js",
+    "static/js/2.f3414d32.chunk.js",
+    "static/css/main.1ac8bd33.chunk.css",
+    "static/js/main.5b42705c.chunk.js"
+  ]
+}
