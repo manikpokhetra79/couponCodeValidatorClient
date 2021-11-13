@@ -1,3 +1,6 @@
-export const createCoupon = 'http://localhost:8000/api/coupons/create';
-export const validateCoupon = 'http://localhost:8000/api/coupons/validate';
-export const listCoupons = 'http://localhost:8000/api/coupons/listall';
+export const createCoupon =
+  'https://coupon-code-generator.herokuapp.com/api/coupons/create';
+export const validateCoupon =
+  'https://coupon-code-generator.herokuapp.com/api/coupons/validate';
+export const listCoupons =
+  'https://coupon-code-generator.herokuapp.com/api/coupons/listall';
