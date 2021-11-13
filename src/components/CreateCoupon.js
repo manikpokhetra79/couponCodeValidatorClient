@@ -76,6 +76,7 @@ const CreateCoupon = () => {
   };
   // generate coupon fetch api function
   let generateCoupon = (obj) => {
+    console.log(obj);
     fetch(createCoupon, {
       method: 'POST',
       body: JSON.stringify({
@@ -100,7 +101,7 @@ const CreateCoupon = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error, 'ehjre');
       });
   };
   return (

@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { listCoupons } from '../utils/urls';
+const CouponsList = () => {
+  const [couponsList, setCouponsList] = useState([]);
+  useEffect(() => {
+    fetch(listCoupons)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCouponsList(data.coupons);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    return function cleanup() {
+      setCouponsList([]);
+    };
+  }, []);
 
-const CouponsList = ({couponsList}) => {
-  
   return (
     <>
       <h2 className="text-center text-danger">Coupons List</h2>

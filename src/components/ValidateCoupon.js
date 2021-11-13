@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { validateCoupon } from '../utils/urls';
 const ValidateCoupon = () => {
@@ -10,7 +10,18 @@ const ValidateCoupon = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [discountAmount, setDiscountAmount] = useState(0);
   const [updatedCartAmount, setUpdatedCartAmount] = useState(0);
-
+  useEffect(() => {
+    return function cleanup() {
+      setCartAmount(0);
+      setCouponCode('');
+      setError(false);
+      setSuccess(false);
+      setErrorMessage('');
+      setSuccessMessage('');
+      setDiscountAmount(0);
+      setUpdatedCartAmount(0);
+    };
+  }, []);
   let handleSubmit = () => {
     if (cartAmount && couponCode) {
       fetch(validateCoupon, {
@@ -23,7 +34,7 @@ const ValidateCoupon = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data);
+          console.log(data);
           if (data.status === 'success') {
             //  get required data from api response
             setSuccess(true);
