@@ -11,7 +11,9 @@ const CreateCoupon = () => {
   const [maxDiscount, setmaxDiscount] = useState(0);
   const [isFlat, setIsFlat] = useState(false);
   const [isPercent, setIsPercent] = useState(false);
-
+  const [ifError, setError] = useState(false);
+  const [ifSuccess, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   let handleOption = (e) => {
     if (e.target.value === 'flat') {
       setIsFlat(true);
@@ -27,7 +29,7 @@ const CreateCoupon = () => {
     }
   };
 
-  let handleSubmit = () => {
+  let handleSubmit = (e) => {
     if (couponType === 'flat') {
       let obj = {
         name: couponName,
@@ -44,6 +46,8 @@ const CreateCoupon = () => {
         flatAmount
       ) {
         generateCoupon(obj);
+      } else {
+        alert('Enter all required values');
       }
     } else if (couponType === 'percent') {
       let obj = {
@@ -63,7 +67,11 @@ const CreateCoupon = () => {
         maxDiscount
       ) {
         generateCoupon(obj);
+      } else {
+        alert('Enter all required values');
       }
+    } else {
+      alert('Enter all required values');
     }
   };
   // generate coupon fetch api function
@@ -76,14 +84,29 @@ const CreateCoupon = () => {
       headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        if (data.status === 'success') {
+          setSuccess(true);
+          setTimeout(() => {
+            setSuccess(false);
+          }, 4000);
+        } else {
+          setError(true);
+          setErrorMessage(data.message);
+          setTimeout(() => {
+            setError(false);
+          }, 4000);
+        }
+      });
   };
   return (
     <>
-      <Row>
-        <h1 className="text-center">Coupon Generator</h1>
-      </Row>
-      <Container className="form">
+      <Container className="p-3">
+        {' '}
+        <Row>
+          <h1 className="text-center">Coupon Generator</h1>
+        </Row>
         <Row lg={10} className="my-3">
           <Col md={5} lg={5} className="d-flex justify-content-between">
             <label>Enter Code</label>
@@ -94,6 +117,7 @@ const CreateCoupon = () => {
               onChange={(e) => {
                 setCouponName(e.target.value);
               }}
+              required
             />
           </Col>
           <Col md={5} lg={5} className="d-flex justify-content-between">
@@ -102,6 +126,7 @@ const CreateCoupon = () => {
             <input
               type="datetime-local"
               step="2"
+              required
               name="expirationDate"
               onChange={(e) => {
                 setexpirationDate(e.target.value);
@@ -116,6 +141,7 @@ const CreateCoupon = () => {
             <input
               type="number"
               name="minCartValue"
+              required
               placeholder="Enter Minimum Cart Value"
               onChange={(e) => {
                 setminCartValue(e.target.value);
@@ -141,6 +167,7 @@ const CreateCoupon = () => {
               <label>Enter flat Coupon Amount</label>
               <input
                 type="number"
+                required
                 name="flatAmount"
                 placeholder="Enter Amount for Coupon"
                 onChange={(e) => {
@@ -158,6 +185,8 @@ const CreateCoupon = () => {
               <input
                 type="number"
                 name="percentValue"
+                min="1"
+                required
                 placeholder="Enter Percent Value"
                 onChange={(e) => {
                   setpercentValue(e.target.value);
@@ -171,6 +200,8 @@ const CreateCoupon = () => {
                 type="number"
                 name="maxDiscount"
                 placeholder="Max Percent Discount"
+                min="1"
+                required
                 onChange={(e) => {
                   setmaxDiscount(e.target.value);
                 }}
@@ -184,6 +215,20 @@ const CreateCoupon = () => {
               Generate Coupon
             </Button>
           </Col>
+          {ifSuccess && (
+            <Col>
+              <div className="alert alert-primary" role="alert">
+                Coupon created Successfully.
+              </div>
+            </Col>
+          )}
+          {ifError && (
+            <Col>
+              <div className="alert alert-danger" role="alert">
+                <span className="text-capitalize">{errorMessage}</span>
+              </div>
+            </Col>
+          )}
         </Row>
       </Container>
     </>
