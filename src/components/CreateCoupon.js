@@ -108,7 +108,7 @@ const CreateCoupon = () => {
       <Container className="p-3">
         {' '}
         <Row>
-          <h1 className="text-center">Coupon Generator</h1>
+          <h1 className="text-center text-danger">Coupon Generator</h1>
         </Row>
         <Row lg={10} className="my-3">
           <Col md={5} lg={5} className="d-flex justify-content-between">

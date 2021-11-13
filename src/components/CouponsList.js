@@ -16,7 +16,10 @@ const CouponsList = () => {
   return (
     <>
       <h2 className="text-center text-danger">Coupons List</h2>
-      <ol className="  my-3">
+      {couponsList.length === 0 && (
+        <h3 className="text-center text-info">No Coupons Available</h3>
+      )}
+      <ol className="my-3">
         {couponsList.map((coupon, index) => (
           <li
             key={index}
