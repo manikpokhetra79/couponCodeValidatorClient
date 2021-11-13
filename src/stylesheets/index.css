@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-size: 14px;
+}
+/*  */
+label {
+  margin-right: 1.1rem;
+}
+/* utility classes styling  */
+
+/* header menu */
+
+nav {
+  /* background-color: #1565c0; */
+  padding: 10px;
+}
+.header-menu {
+  list-style-type: none;
+  display: flex;
+}
+.header-menu li {
+  margin-right: 10px;
+  text-decoration: none;
+}
+.header-menu li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+}
+/* input styling */
+input {
+  padding: 5px;
+  font-size: 13px;
+}
+input::placeholder {
+  font-size: 12px;
+}
+input[type='date'] {
+  font-size: 12px;
+}

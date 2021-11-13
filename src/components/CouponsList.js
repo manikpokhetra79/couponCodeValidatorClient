@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const CouponsList = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return <div></div>;
+};
 
-export default CouponsList
+export default CouponsList;
